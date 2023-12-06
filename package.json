@@ -1,0 +1,20 @@
+{
+  "name": "doczilla",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "scripts": {
+    "build": "tsc && tsc -p tsconfig.esm.json",
+    "generate:sdk": "node ./generate-models.js && yarn build"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "openapi-typescript-codegen": "^0.25.0",
+    "typescript": "^5.3"
+  },
+  "packageManager": "yarn@4.0.2"
+}
