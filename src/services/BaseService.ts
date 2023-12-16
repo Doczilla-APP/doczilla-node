@@ -20,7 +20,7 @@ export class BaseService {
     try {
       await this.waitForRateLimit()
 
-      const axiosResponse = await this.client.post<T>('/v1/pdf', requestBody, config)
+      const axiosResponse = await this.client.post<T>(url, requestBody, config)
       this.processRateLimit(new AxiosHeaders(axiosResponse.headers))
 
       if (config.responseType === 'arraybuffer') {
