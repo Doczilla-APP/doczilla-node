@@ -1,6 +1,6 @@
 {
   "name": "@doczilla/node",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Doczilla API wrapper",
   "keywords": [
     "doczilla",

@@ -3,3 +3,7 @@
 generate-models.js
 tsconfig.esm.json
 tsconfig.json
+.idea
+.github
+.ncurc.json
+openapi.json
