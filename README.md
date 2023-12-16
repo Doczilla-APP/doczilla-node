@@ -5,9 +5,9 @@
 Install the package with:
 
 ```sh
-npm install doczilla
+npm install @doczilla/node
 # or
-yarn add doczilla
+yarn add @doczilla/node
 ```
 
 ## Usage
@@ -16,7 +16,7 @@ The package needs to be configured with your account's API key, which is
 available your [Doczilla's organisation settings page](https://www.doczilla.app/login).
 
 ```ts
-import Doczilla from 'doczilla';
+import Doczilla from '@doczilla/node';
 
 const doczilla = new Doczilla('doczilla-...')
 
