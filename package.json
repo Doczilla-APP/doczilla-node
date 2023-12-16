@@ -1,5 +1,15 @@
 {
   "name": "doczilla",
+  "description": "Doczilla API wrapper",
+  "keywords": [
+    "doczilla",
+    "puppeteer",
+    "html2pdf",
+    "html2image",
+    "api",
+    "chrome",
+    "headless"
+  ],
   "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/index.js",
