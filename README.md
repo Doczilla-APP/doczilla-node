@@ -28,7 +28,7 @@ const pdfBuffer = await doczilla.pdf.direct({
 ### Webhook signing
 
 Doczilla can optionally sign the webhook events it sends to your endpoint, allowing you to validate that they were not
-sent by a third-party. You can read more about it [here](https://docs.doczilla.app/webhooks).
+sent by a third party. You can read more about it [here](https://docs.doczilla.app/examples/securing-webhooks).
 
 Please note that you must pass the _raw_ request body, exactly as received from Doczilla, to the `verifyPayload()`
 function; this will not work with a parsed (i.e., JSON) request body.
