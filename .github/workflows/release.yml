@@ -24,6 +24,7 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v4
         with:
           github-token: ${{ secrets.github_token }}
+          skip-on-empty: false
 
       - name: Create Release
         uses: actions/create-release@v1
