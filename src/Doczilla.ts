@@ -3,6 +3,7 @@ import axios, { Axios } from 'axios'
 import { PdfService } from './services/PdfService'
 import { ScreenshotService } from './services/ScreenshotService'
 import { WebhookService } from './services/WebhookService'
+import { version } from '../package.json'
 
 interface DoczillaOptions {
   baseURL?: string
@@ -20,6 +21,7 @@ export default class Doczilla {
     this.client = axios.create({
       baseURL: options.baseURL || 'https://api.doczilla.app',
       headers: {
+        'User-Agent': `Doczilla Node.js / ${version}`,
         Authorization: `Bearer ${token}`
       }
     })
