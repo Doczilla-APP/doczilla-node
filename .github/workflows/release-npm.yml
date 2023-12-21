@@ -3,7 +3,7 @@ name: Release (npm)
 on:
   push:
     tags:
-      - '*'
+      - '**'
 
 jobs:
   release:
