@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/doczilla-app/doczilla-node/compare/v1.0.7...v1.1.0) (2023-12-21)
+
+
+### Features
+
+* Set SDK version inside user agent header ([7074cc7](https://github.com/doczilla-app/doczilla-node/commit/7074cc7478f0bf26f7d401282b203bfd3e76d48c))
+
+
+
 ## [1.0.7](https://github.com/doczilla-app/doczilla-node/compare/v1.0.6...v1.0.7) (2023-12-21)
 
 
