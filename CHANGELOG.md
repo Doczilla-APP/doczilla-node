@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/doczilla-app/doczilla-node/compare/v1.1.0...v1.2.0) (2023-12-23)
+
+
+### Features
+
+* Automatically encode `page.html`, `pdf.headerTemplate` and `pdf.footerTemplate` ([3a62a32](https://github.com/doczilla-app/doczilla-node/commit/3a62a3249e64195a322cb614802023d95d0dd526))
+
+
+
 # [1.1.0](https://github.com/doczilla-app/doczilla-node/compare/v1.0.7...v1.1.0) (2023-12-21)
 
 
@@ -22,10 +31,6 @@
 
 * Fixed all calls going to `/v1/pdf` ([ec0e33a](https://github.com/doczilla-app/doczilla-node/commit/ec0e33a262206a3737942eb75f678d1bbd3f7166))
 * Updated `.npmignore` ([6052575](https://github.com/doczilla-app/doczilla-node/commit/6052575de6607d7953c5dfcf65744a298125086f))
-
-
-
-# 1.0.0 (2023-12-16)
 
 
 
