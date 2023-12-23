@@ -1,9 +1,9 @@
 import axios, { Axios } from 'axios'
 
+import { version } from '../package.json'
 import { PdfService } from './services/PdfService'
 import { ScreenshotService } from './services/ScreenshotService'
 import { WebhookService } from './services/WebhookService'
-import { version } from '../package.json'
 
 interface DoczillaOptions {
   baseURL?: string

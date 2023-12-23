@@ -1,4 +1,5 @@
 import type { AsyncJob, AsyncPdf, CreatePdf, SyncJob, SyncPdf } from '../generated'
+
 import { BaseService } from './BaseService'
 
 export class PdfService extends BaseService {
