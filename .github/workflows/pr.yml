@@ -1,0 +1,73 @@
+name: "Check PR"
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache
+            **/node_modules
+          key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            cache-node-modules-
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: yarn install
+        if: steps.cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: yarn install --immutable
+
+      - name: Build
+        shell: bash
+        run: yarn build
+
+  test:
+    name: Test (${{ matrix.node }})
+    needs: [build]
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-latest"
+        node:
+          - "20"
+          - "18"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Print Node.js version
+        run: node -v
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache
+            **/node_modules
+          key: cache-node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            cache-node-modules-
+
+      - name: Test
+        run: yarn test

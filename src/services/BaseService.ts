@@ -1,5 +1,11 @@
 import { Axios, AxiosHeaders, AxiosRequestConfig, isAxiosError } from 'axios'
 
+import type { AsyncPdf, AsyncScreenshot, CreatePdf, CreateScreenshot, SyncPdf, SyncScreenshot } from '../generated'
+
+type PdfRequests = CreatePdf | SyncPdf | AsyncPdf
+type ScreenshotRequests = CreateScreenshot | SyncScreenshot | AsyncScreenshot
+type RequestBody = PdfRequests | ScreenshotRequests
+
 export class BaseService {
 
   private rateLimit = {
@@ -16,11 +22,11 @@ export class BaseService {
 
   constructor(private readonly client: Axios) {}
 
-  protected async post<T>(url: string, requestBody: object, config: AxiosRequestConfig = {}, retries = 1): Promise<T> {
+  protected async post<T>(url: string, requestBody: RequestBody, config: AxiosRequestConfig = {}, retries = 1): Promise<T> {
     try {
       await this.waitForRateLimit()
 
-      const axiosResponse = await this.client.post<T>(url, requestBody, config)
+      const axiosResponse = await this.client.post<T>(url, this.encodeRequestBody(requestBody), config)
       this.processRateLimit(new AxiosHeaders(axiosResponse.headers))
 
       if (config.responseType === 'arraybuffer') {
@@ -35,6 +41,22 @@ export class BaseService {
 
       throw err
     }
+  }
+
+  private encodeRequestBody(requestBody: PdfRequests): object {
+    if (requestBody.page.html) {
+      requestBody.page.html = this.baseEncodeContent(requestBody.page.html)
+    }
+
+    if (requestBody.pdf?.headerTemplate) {
+      requestBody.pdf.headerTemplate = this.baseEncodeContent(requestBody.pdf.headerTemplate)
+    }
+
+    if (requestBody.pdf?.footerTemplate) {
+      requestBody.pdf.footerTemplate = this.baseEncodeContent(requestBody.pdf.footerTemplate)
+    }
+
+    return requestBody
   }
 
   private async waitForRateLimit(): Promise<void> {
@@ -56,4 +78,7 @@ export class BaseService {
     }
   }
 
+  private baseEncodeContent(content: string): string {
+    return Buffer.from(content).toString('base64')
+  }
 }

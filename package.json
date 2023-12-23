@@ -29,15 +29,30 @@
   "module": "./dist/esm/index.js",
   "scripts": {
     "build": "tsc && tsc -p tsconfig.esm.json",
-    "generate:sdk": "node ./generate-models.js && yarn build"
+    "generate:sdk": "node ./generate-models.js && yarn build",
+    "lint": "eslint --ext .ts .",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^1.6.2"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "axios-mock-adapter": "^1.22.0",
+    "eslint": "8.56.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "jest": "^29.7.0",
     "openapi-typescript-codegen": "^0.25.0",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.3"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "engines": {
+    "node": ">=18.*"
+  }
 }

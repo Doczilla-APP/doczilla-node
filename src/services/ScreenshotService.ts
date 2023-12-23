@@ -1,5 +1,6 @@
-import { BaseService } from './BaseService'
 import type { AsyncJob, AsyncScreenshot, CreateScreenshot, SyncJob, SyncScreenshot } from '../generated'
+
+import { BaseService } from './BaseService'
 
 export class ScreenshotService extends BaseService {
 
