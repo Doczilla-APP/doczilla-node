@@ -1,12 +1,7 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -50,6 +45,7 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           skip-on-empty: false
+          skip-commit: true
 
       - name: GIT/NPM config
         run: |
