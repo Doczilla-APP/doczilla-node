@@ -45,6 +45,7 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           skip-on-empty: false
+          skip-commit: true
 
       - name: GIT/NPM config
         run: |
