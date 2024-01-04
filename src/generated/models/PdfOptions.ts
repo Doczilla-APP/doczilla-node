@@ -22,11 +22,11 @@ export type PdfOptions = {
      * - `pageNumber` current page number
      * - `totalPages` total pages in the document
      */
-    headerTemplate?: string | null;
+    headerHtml?: string | null;
     /**
-     * HTML template for the print footer. Has the same constraints and support for special classes as `headerTemplate`.
+     * HTML template for the print footer. Has the same constraints and support for special classes as `headerHtml`.
      */
-    footerTemplate?: string | null;
+    footerHtml?: string | null;
     /**
      * Set to `true` to print background graphics.
      */
