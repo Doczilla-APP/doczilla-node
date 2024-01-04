@@ -10,13 +10,9 @@ import type { WebhookOptions } from './WebhookOptions';
 
 export type AsyncScreenshot = {
     /**
-     * Page options, either provide the `url` or `html` option.
+     * Page options, either provide the `url`, `html` or `htmlTemplate` option.
      */
     page: PageOptions;
-    /**
-     * Template data, only used in combination with `page.htmlTemplate`.
-     */
-    templateData?: Record<string, any> | null;
     screenshot?: ScreenshotOptions | null;
     storage?: StorageOptions | null;
     /**

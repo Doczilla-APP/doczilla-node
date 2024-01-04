@@ -11,25 +11,27 @@ describe('PDF', () => {
 
   axiosMock.onAny().reply(200, Buffer.from(''))
 
-  test('it should encode the pdf.headerTemplate and pdf.footerTemplate options', async () => {
+  test('it should encode the page.html, page.htmlTemplate, pdf.headerHtml and pdf.footerHtml options', async () => {
     await client.pdf.direct({
       page: {
-        html: '<div>Your first Doczilla PDF</div>'
+        html: '<div>Your first Doczilla PDF</div>',
+        htmlTemplate: '<div>Your first Doczilla {{ type }}</div>',
       },
       pdf: {
-        headerTemplate: '<div>Header template</div>',
-        footerTemplate: '<div>Footer template</div>'
+        headerHtml: '<div>Header template</div>',
+        footerHtml: '<div>Footer template</div>'
       }
     })
 
     expect(axiosMock.history.post.length).toBe(1)
     expect(axiosMock.history.post[0].data).toEqual(JSON.stringify({
       page: {
-        html: 'PGRpdj5Zb3VyIGZpcnN0IERvY3ppbGxhIFBERjwvZGl2Pg=='
+        html: 'PGRpdj5Zb3VyIGZpcnN0IERvY3ppbGxhIFBERjwvZGl2Pg==',
+        htmlTemplate: 'PGRpdj5Zb3VyIGZpcnN0IERvY3ppbGxhIHt7IHR5cGUgfX08L2Rpdj4='
       },
       pdf: {
-        headerTemplate: 'PGRpdj5IZWFkZXIgdGVtcGxhdGU8L2Rpdj4=',
-        footerTemplate: 'PGRpdj5Gb290ZXIgdGVtcGxhdGU8L2Rpdj4='
+        headerHtml: 'PGRpdj5IZWFkZXIgdGVtcGxhdGU8L2Rpdj4=',
+        footerHtml: 'PGRpdj5Gb290ZXIgdGVtcGxhdGU8L2Rpdj4='
       }
     }))
   })

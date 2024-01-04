@@ -48,12 +48,16 @@ export class BaseService {
       requestBody.page.html = this.baseEncodeContent(requestBody.page.html)
     }
 
-    if (requestBody.pdf?.headerTemplate) {
-      requestBody.pdf.headerTemplate = this.baseEncodeContent(requestBody.pdf.headerTemplate)
+    if (requestBody.page.htmlTemplate) {
+      requestBody.page.htmlTemplate = this.baseEncodeContent(requestBody.page.htmlTemplate)
     }
 
-    if (requestBody.pdf?.footerTemplate) {
-      requestBody.pdf.footerTemplate = this.baseEncodeContent(requestBody.pdf.footerTemplate)
+    if (requestBody.pdf?.headerHtml) {
+      requestBody.pdf.headerHtml = this.baseEncodeContent(requestBody.pdf.headerHtml)
+    }
+
+    if (requestBody.pdf?.footerHtml) {
+      requestBody.pdf.footerHtml = this.baseEncodeContent(requestBody.pdf.footerHtml)
     }
 
     return requestBody
