@@ -10,7 +10,7 @@ import type { WebhookOptions } from './WebhookOptions';
 
 export type AsyncPdf = {
     /**
-     * Page options, either provide the `url` or `html` option.
+     * Page options, either provide the `url`, `html` or `htmlTemplate` option.
      */
     page: PageOptions;
     pdf?: PdfOptions | null;

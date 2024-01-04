@@ -16,6 +16,14 @@ export type PageOptions = {
      */
     html?: string | null;
     /**
+     * HTML template to render. Needs to be base64 encoded!
+     */
+    htmlTemplate?: string | null;
+    /**
+     * Template data, only used in combination with `page.htmlTemplate`.
+     */
+    templateData?: Record<string, any> | null;
+    /**
      * When to consider waiting succeeds.
      * - `auto` our smart waiting option that can handle 90% of the cases.
      * - `load` waits for the 'load' event.
