@@ -13,7 +13,7 @@ jobs:
 
       - name: Cache node modules
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cache
@@ -60,7 +60,7 @@ jobs:
 
       - name: Cache node modules
         id: cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cache
