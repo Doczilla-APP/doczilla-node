@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type SyncJob = {
     /**
      * Id of the queued job.
@@ -24,9 +23,7 @@ export type SyncJob = {
      */
     signedUrlStatus?: string | null;
 };
-
 export namespace SyncJob {
-
     /**
      * Status of the job.
      */
@@ -36,7 +33,5 @@ export namespace SyncJob {
         FAILED = 'FAILED',
         COMPLETED = 'COMPLETED',
     }
-
-
 }
 

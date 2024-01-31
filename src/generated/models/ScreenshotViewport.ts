@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type ScreenshotViewport = {
     /**
      * The page width in CSS pixels.

@@ -2,9 +2,7 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PDFMargin } from './PDFMargin';
-
 export type PdfOptions = {
     /**
      * Scales the rendering of the web page. Amount must be between `0.1` and `2`.
@@ -76,9 +74,7 @@ export type PdfOptions = {
      */
     omitBackground?: boolean;
 };
-
 export namespace PdfOptions {
-
     /**
      * If set, this takes priority over the `width` and `height` options.
      * The sizes of each format are as follows:
@@ -107,7 +103,5 @@ export namespace PdfOptions {
         A5 = 'a5',
         A6 = 'a6',
     }
-
-
 }
 

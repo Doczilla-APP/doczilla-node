@@ -2,11 +2,9 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ScreenshotClip } from './ScreenshotClip';
 import type { ScreenshotOverlay } from './ScreenshotOverlay';
 import type { ScreenshotViewport } from './ScreenshotViewport';
-
 export type ScreenshotOptions = {
     type?: ScreenshotOptions.type | null;
     /**
@@ -51,15 +49,12 @@ export type ScreenshotOptions = {
      */
     overlay?: ScreenshotOverlay | null;
 };
-
 export namespace ScreenshotOptions {
-
     export enum type {
         PNG = 'png',
         JPEG = 'jpeg',
         WEBP = 'webp',
     }
-
     /**
      * Device preset to use, will not be set when `viewport` option is provided!
      */
@@ -188,7 +183,5 @@ export namespace ScreenshotOptions {
         I_MAC_27 = 'iMac 27',
         I_MAC_27_5K = 'iMac 27 5K',
     }
-
-
 }
 

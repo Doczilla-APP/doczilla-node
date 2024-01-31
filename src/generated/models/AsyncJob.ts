@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type AsyncJob = {
     /**
      * Id of the queued job.
@@ -13,9 +12,7 @@ export type AsyncJob = {
      */
     status: AsyncJob.status;
 };
-
 export namespace AsyncJob {
-
     /**
      * Status of the job.
      */
@@ -25,7 +22,5 @@ export namespace AsyncJob {
         FAILED = 'FAILED',
         COMPLETED = 'COMPLETED',
     }
-
-
 }
 

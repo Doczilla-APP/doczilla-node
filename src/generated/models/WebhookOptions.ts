@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type WebhookOptions = {
     /**
      * The way this webhook wants to receive the result.
@@ -27,9 +26,7 @@ export type WebhookOptions = {
      */
     metadata?: Record<string, any> | null;
 };
-
 export namespace WebhookOptions {
-
     /**
      * The way this webhook wants to receive the result.
      * - When `URL` is used an temporary URL will be provided to download the file (the file will be automatically deleted after 1 hour).
@@ -39,7 +36,6 @@ export namespace WebhookOptions {
         BASE64 = 'base64',
         URL = 'URL',
     }
-
     /**
      * Method to use when calling the webhook.
      */
@@ -47,7 +43,5 @@ export namespace WebhookOptions {
         POST = 'POST',
         PUT = 'PUT',
     }
-
-
 }
 

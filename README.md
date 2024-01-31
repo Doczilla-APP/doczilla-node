@@ -13,7 +13,7 @@ yarn add @doczilla/node
 ## Usage
 
 The package needs to be configured with your account's API key, which is
-available your [Doczilla's organisation settings page](https://www.doczilla.app/login).
+available your [Doczilla's organisation settings page](https://doczilla.app/login).
 
 ```ts
 import Doczilla from '@doczilla/node';
@@ -21,7 +21,7 @@ import Doczilla from '@doczilla/node';
 const doczilla = new Doczilla('doczilla-...')
 
 const pdfBuffer = await doczilla.pdf.direct({
-  url: 'https://www.doczilla.app'
+  url: 'https://doczilla.app'
 })
 ```
 
