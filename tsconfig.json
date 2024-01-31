@@ -17,8 +17,13 @@
       "jest"
     ]
   },
+  "include": [
+    "src/**/*.ts"
+  ],
   "exclude": [
     "dist",
+    "**/*.spec.ts",
+    "**/*.test.ts",
     "node_modules",
     "template/*.ts"
   ]
