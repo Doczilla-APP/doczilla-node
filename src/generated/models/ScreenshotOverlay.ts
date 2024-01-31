@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type ScreenshotOverlay = {
     /**
      * Color to apply as background, can be an an hexadecimal/rgb/rgba color code or CSS gradient.
@@ -25,9 +24,7 @@ export type ScreenshotOverlay = {
      */
     screenshotBorderRadius?: number;
 };
-
 export namespace ScreenshotOverlay {
-
     /**
      * Browser to apply.
      */
@@ -35,7 +32,5 @@ export namespace ScreenshotOverlay {
         LIGHT = 'light',
         DARK = 'dark',
     }
-
-
 }
 

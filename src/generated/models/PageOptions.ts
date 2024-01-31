@@ -2,10 +2,8 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { PageAuthentication } from './PageAuthentication';
 import type { PageCookie } from './PageCookie';
-
 export type PageOptions = {
     /**
      * URL to go to.
@@ -65,9 +63,7 @@ export type PageOptions = {
      */
     timezone?: string | null;
 };
-
 export namespace PageOptions {
-
     /**
      * When to consider waiting succeeds.
      * - `auto` our smart waiting option that can handle 90% of the cases.
@@ -83,7 +79,6 @@ export namespace PageOptions {
         NETWORKIDLE0 = 'networkidle0',
         NETWORKIDLE2 = 'networkidle2',
     }
-
     /**
      * Changes the CSS media type of the page.
      */
@@ -91,7 +86,5 @@ export namespace PageOptions {
         SCREEN = 'screen',
         PRINT = 'print',
     }
-
-
 }
 

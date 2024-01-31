@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type PageCookie = {
     /**
      * Cookie name.
@@ -41,9 +40,7 @@ export type PageCookie = {
      */
     expires?: number | null;
 };
-
 export namespace PageCookie {
-
     /**
      * Cookie SameSite type.
      */
@@ -52,7 +49,5 @@ export namespace PageCookie {
         LAX = 'Lax',
         NONE = 'None',
     }
-
-
 }
 

@@ -2,7 +2,6 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type WebhookEvent = {
     /**
      * Id of the queued job.
@@ -32,9 +31,7 @@ export type WebhookEvent = {
      */
     metadata?: Record<string, any> | null;
 };
-
 export namespace WebhookEvent {
-
     /**
      * Status of the job.
      */
@@ -44,7 +41,5 @@ export namespace WebhookEvent {
         FAILED = 'FAILED',
         COMPLETED = 'COMPLETED',
     }
-
-
 }
 
