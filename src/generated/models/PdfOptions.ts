@@ -73,6 +73,11 @@ export type PdfOptions = {
      * Hides default white background and allows generating pdfs with transparency.
      */
     omitBackground?: boolean;
+    /**
+     * Generate tagged (accessible) PDF.
+     * This is experimental and will increase the size of the PDF.
+     */
+    tagged?: boolean;
 };
 export namespace PdfOptions {
     /**
