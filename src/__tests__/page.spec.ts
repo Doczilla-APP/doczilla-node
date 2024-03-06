@@ -11,6 +11,10 @@ describe('Page', () => {
 
   axiosMock.onAny().reply(200, Buffer.from(''))
 
+  beforeEach(() => {
+    axiosMock.resetHistory()
+  })
+
   test('it encode the page.html option (pdf)', async () => {
     await client.pdf.direct({
       page: {
