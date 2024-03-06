@@ -74,6 +74,11 @@ export type PdfOptions = {
      */
     omitBackground?: boolean;
     /**
+     * Generate document outline.
+     * If this is enabled the PDF will also be tagged (accessible)
+     */
+    outline?: boolean;
+    /**
      * Generate tagged (accessible) PDF.
      * This is experimental and will increase the size of the PDF.
      */
