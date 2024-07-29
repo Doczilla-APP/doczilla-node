@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -12,7 +12,7 @@ export type WebhookEvent = {
      */
     status: WebhookEvent.status;
     /**
-     * URL to the generated file (will be null if `storage.signedUrl` is used). This url is valid for 1 hour, after that the file will be deleted from our storage.
+     * URL to the generated file (will be `null` if `storage.signedUrl` is used). This url is valid for 1 hour, after that the file will be deleted from our storage.
      */
     fileUrl?: string | null;
     /**
@@ -23,7 +23,7 @@ export type WebhookEvent = {
      */
     signedUrlStatus?: string | null;
     /**
-     * The generated file base64 encoded (will be null if `storage.signedUrl` is used).
+     * The generated file base64 encoded (will be `null` if `storage.signedUrl` is used).
      */
     fileBase64?: string | null;
     /**

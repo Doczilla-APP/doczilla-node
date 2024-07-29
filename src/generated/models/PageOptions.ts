@@ -1,12 +1,14 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { PageAuthentication } from './PageAuthentication';
 import type { PageCookie } from './PageCookie';
+import type { PageWaitForFunction } from './PageWaitForFunction';
+import type { PageWaitForSelector } from './PageWaitForSelector';
 export type PageOptions = {
     /**
-     * URL to go to.
+     * URL to go to. Should include the scheme, e.g. `https://`
      */
     url?: string | null;
     /**
@@ -30,6 +32,18 @@ export type PageOptions = {
      * - `networkidle2` waits till there are no more than 2 network connections for at least `500` ms.
      */
     waitUntil?: PageOptions.waitUntil;
+    /**
+     * Wait for a certain amount of milliseconds before the request continues.
+     */
+    waitForMilliseconds?: number | null;
+    /**
+     * Wait for the [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors) to appear in page. If the [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors) doesn't appear after the `timeout` milliseconds of waiting, the request will continue.
+     */
+    waitForSelector?: PageWaitForSelector | null;
+    /**
+     * Wait for the `pageFunction` to execute in the page. If the `pageFunction` doesn't execute successfully after the `timeout` milliseconds of waiting, the request will continue.
+     */
+    waitForFunction?: PageWaitForFunction | null;
     /**
      * An object containing additional HTTP headers to be sent with every request. All header values must be strings.
      */

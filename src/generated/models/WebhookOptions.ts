@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -10,7 +10,7 @@ export type WebhookOptions = {
      */
     receiveType?: WebhookOptions.receiveType;
     /**
-     * The webhook's URL.
+     * The webhook's URL. Should include the scheme, e.g. `https://`
      */
     url: string;
     /**

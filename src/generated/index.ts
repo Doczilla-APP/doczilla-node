@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -14,6 +14,10 @@ export type { InternalServerErrorResponse } from './models/InternalServerErrorRe
 export type { PageAuthentication } from './models/PageAuthentication';
 export { PageCookie } from './models/PageCookie';
 export { PageOptions } from './models/PageOptions';
+export type { PageWaitForFunction } from './models/PageWaitForFunction';
+export type { PageWaitForFunctionOptions } from './models/PageWaitForFunctionOptions';
+export type { PageWaitForSelector } from './models/PageWaitForSelector';
+export type { PageWaitForSelectorOptions } from './models/PageWaitForSelectorOptions';
 export type { PayloadTooLargeResponse } from './models/PayloadTooLargeResponse';
 export type { PDFMargin } from './models/PDFMargin';
 export { PdfOptions } from './models/PdfOptions';
