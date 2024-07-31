@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -75,7 +75,7 @@ export type PdfOptions = {
     omitBackground?: boolean;
     /**
      * Generate document outline.
-     * If this is enabled the PDF will also be tagged (accessible)
+     * If this is enabled the PDF will also be tagged (accessible).
      */
     outline?: boolean;
     /**

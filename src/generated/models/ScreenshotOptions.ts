@@ -1,4 +1,4 @@
-/* generated using openapi-typescript-codegen -- do no edit */
+/* generated using openapi-typescript-codegen -- do not edit */
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
@@ -41,7 +41,7 @@ export type ScreenshotOptions = {
      */
     clip?: ScreenshotClip | null;
     /**
-     * It captures the DOM element matching the given CSS selector. This will overwrite the `clip` property and set `fullPage` to `false`.
+     * It captures the DOM element matching the given CSS [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors). This will overwrite the `clip` property and set `fullPage` to `false`.
      */
     element?: string | null;
     /**
