@@ -41,7 +41,7 @@ export type ScreenshotOptions = {
      */
     clip?: ScreenshotClip | null;
     /**
-     * It captures the DOM element matching the given CSS [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors). This will overwrite the `clip` property and set `fullPage` to `false`.
+     * It captures the DOM element matching the given CSS [selector](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors). This will overwrite the `clip` property and set `fullPage` to `false`. Will wait for the element to become visible for a maximum of 15 seconds.
      */
     element?: string | null;
     /**

@@ -11,7 +11,7 @@ export class PdfService extends BaseService {
    * @throws AxiosError
    */
   public direct(requestBody: CreatePdf): Promise<Buffer> {
-    return this.post('/v1/pdf', requestBody, {
+    return this.request('POST', '/v1/pdf', requestBody, {
       responseType: 'arraybuffer'
     })
   }
@@ -23,7 +23,7 @@ export class PdfService extends BaseService {
    * @throws AxiosError
    */
   public async sync(requestBody: SyncPdf): Promise<SyncJob> {
-    return this.post('/v1/pdf/sync', requestBody)
+    return this.request('POST', '/v1/pdf/sync', requestBody)
   }
 
   /**
@@ -33,7 +33,7 @@ export class PdfService extends BaseService {
    * @throws AxiosError
    */
   public async(requestBody: AsyncPdf): Promise<AsyncJob> {
-    return this.post('/v1/pdf/async', requestBody)
+    return this.request('POST', '/v1/pdf/async', requestBody)
   }
 
 }

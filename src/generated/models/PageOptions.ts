@@ -16,7 +16,7 @@ export type PageOptions = {
      */
     html?: string | null;
     /**
-     * HTML template to render. Needs to be base64 encoded!
+     * HTML template to render, uses [Handlebars](https://handlebarsjs.com/) to render your HTML together with the provided `templateData`. Needs to be base64 encoded!
      */
     htmlTemplate?: string | null;
     /**

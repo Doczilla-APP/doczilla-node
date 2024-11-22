@@ -3,6 +3,7 @@ import axios, { Axios } from 'axios'
 import { version } from '../package.json'
 import { PdfService } from './services/PdfService'
 import { ScreenshotService } from './services/ScreenshotService'
+import { TemplateService } from './services/TemplateService'
 import { WebhookService } from './services/WebhookService'
 
 interface DoczillaOptions {
@@ -16,6 +17,7 @@ export default class Doczilla {
   public readonly pdf: PdfService
   public readonly screenshot: ScreenshotService
   public readonly webhook: WebhookService
+  public readonly template: TemplateService
 
   constructor(token: string, options: DoczillaOptions = {}) {
     if (!token) {
@@ -32,6 +34,7 @@ export default class Doczilla {
 
     this.pdf = new PdfService(this.client)
     this.screenshot = new ScreenshotService(this.client)
+    this.template = new TemplateService(this.client)
     this.webhook = new WebhookService()
   }
 

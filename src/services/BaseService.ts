@@ -1,10 +1,21 @@
-import { Axios, AxiosHeaders, AxiosRequestConfig, isAxiosError } from 'axios'
+import { Axios, AxiosHeaders, AxiosRequestConfig, isAxiosError, Method } from 'axios'
 
-import type { AsyncPdf, AsyncScreenshot, CreatePdf, CreateScreenshot, SyncPdf, SyncScreenshot } from '../generated'
+import type {
+  AsyncFromTemplate,
+  AsyncPdf,
+  AsyncScreenshot,
+  CreateFromTemplate,
+  CreatePdf,
+  CreateScreenshot,
+  SyncFromTemplate,
+  SyncPdf,
+  SyncScreenshot
+} from '../generated'
 
 type PdfRequests = CreatePdf | SyncPdf | AsyncPdf
 type ScreenshotRequests = CreateScreenshot | SyncScreenshot | AsyncScreenshot
-type RequestBody = PdfRequests | ScreenshotRequests
+type TemplateRequests = CreateFromTemplate | SyncFromTemplate | AsyncFromTemplate
+type RequestBody = PdfRequests | ScreenshotRequests | TemplateRequests
 
 export class BaseService {
 
@@ -22,11 +33,16 @@ export class BaseService {
 
   constructor(private readonly client: Axios) {}
 
-  protected async post<T>(url: string, requestBody: RequestBody, config: AxiosRequestConfig = {}, retries = 1): Promise<T> {
+  protected async request<T>(method: Method, url: string, requestBody?: object, config: AxiosRequestConfig = {}, retries = 1): Promise<T> {
     try {
       await this.waitForRateLimit()
 
-      const axiosResponse = await this.client.post<T>(url, this.encodeRequestBody(requestBody), config)
+      const axiosResponse = await this.client.request<T>({
+        method,
+        url: url,
+        data: requestBody ? this.encodeRequestBody(requestBody) : undefined,
+        ...config
+      })
       this.processRateLimit(new AxiosHeaders(axiosResponse.headers))
 
       if (config.responseType === 'arraybuffer') {
@@ -36,28 +52,32 @@ export class BaseService {
       return axiosResponse.data
     } catch (err) {
       if (isAxiosError(err) && err.status === 429 && retries > 0) {
-        return this.post(url, requestBody, config, retries - 1)
+        return this.request(method, url, requestBody, config, retries - 1)
       }
 
       throw err
     }
   }
 
-  private encodeRequestBody(requestBody: PdfRequests): object {
-    if (requestBody.page.html) {
-      requestBody.page.html = this.baseEncodeContent(requestBody.page.html)
+  protected encodeRequestBody(requestBody: object): object {
+    if (this.isGenerateRequest(requestBody)) {
+      if (requestBody.page.html) {
+        requestBody.page.html = this.baseEncodeContent(requestBody.page.html)
+      }
+
+      if (requestBody.page.htmlTemplate) {
+        requestBody.page.htmlTemplate = this.baseEncodeContent(requestBody.page.htmlTemplate)
+      }
     }
 
-    if (requestBody.page.htmlTemplate) {
-      requestBody.page.htmlTemplate = this.baseEncodeContent(requestBody.page.htmlTemplate)
-    }
+    if (this.isPdfRequest(requestBody)) {
+      if (requestBody.pdf?.headerHtml) {
+        requestBody.pdf.headerHtml = this.baseEncodeContent(requestBody.pdf.headerHtml)
+      }
 
-    if (requestBody.pdf?.headerHtml) {
-      requestBody.pdf.headerHtml = this.baseEncodeContent(requestBody.pdf.headerHtml)
-    }
-
-    if (requestBody.pdf?.footerHtml) {
-      requestBody.pdf.footerHtml = this.baseEncodeContent(requestBody.pdf.footerHtml)
+      if (requestBody.pdf?.footerHtml) {
+        requestBody.pdf.footerHtml = this.baseEncodeContent(requestBody.pdf.footerHtml)
+      }
     }
 
     return requestBody
@@ -85,4 +105,13 @@ export class BaseService {
   private baseEncodeContent(content: string): string {
     return Buffer.from(content).toString('base64')
   }
+
+  private isPdfRequest(requestBody: object): requestBody is PdfRequests {
+    return requestBody && 'pdf' in requestBody
+  }
+
+  private isGenerateRequest(requestBody: object): requestBody is RequestBody {
+    return requestBody && 'page' in requestBody
+  }
+
 }
