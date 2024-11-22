@@ -21,6 +21,10 @@ export type Template = {
      */
     createdAt: string;
     /**
+     * The date and time the template was last updated.
+     */
+    updatedAt: string;
+    /**
      * The variables of the template.
      */
     variables: TemplateVariables;

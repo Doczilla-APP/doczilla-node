@@ -19,6 +19,10 @@ export type ListTemplate = {
      * The date and time the template was created.
      */
     createdAt: string;
+    /**
+     * The date and time the template was last updated.
+     */
+    updatedAt: string;
 };
 export namespace ListTemplate {
     /**
