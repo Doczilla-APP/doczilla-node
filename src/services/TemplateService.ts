@@ -68,7 +68,10 @@ export class TemplateService extends BaseService {
    * @throws AxiosError
    */
   public create(requestBody: CreateTemplate): Promise<Template> {
-    return this.request('POST', '/v1/templates', requestBody)
+    return this.request('POST', '/v1/templates', {
+      ...requestBody,
+      variables: this.encodeRequestBody(requestBody.variables)
+    })
   }
 
   /**
@@ -88,7 +91,12 @@ export class TemplateService extends BaseService {
    * @throws AxiosError
    */
   public update(id: string, requestBody: UpdateTemplate): Promise<void> {
-    return this.request('POST', `/v1/templates/${id}`, requestBody)
+    return this.request('POST', `/v1/templates/${id}`, {
+      ...requestBody,
+      ...(requestBody.variables && ({
+        variables: this.encodeRequestBody(requestBody.variables)
+      }))
+    })
   }
 
   /**
