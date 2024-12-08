@@ -11,7 +11,7 @@ export class ScreenshotService extends BaseService {
    * @throws AxiosError
    */
   public direct(requestBody: CreateScreenshot): Promise<Buffer> {
-    return this.post('/v1/screenshot', requestBody, {
+    return this.request('POST', '/v1/screenshot', requestBody, {
       responseType: 'arraybuffer'
     })
   }
@@ -23,7 +23,7 @@ export class ScreenshotService extends BaseService {
    * @throws AxiosError
    */
   public sync(requestBody: SyncScreenshot): Promise<SyncJob> {
-    return this.post('/v1/screenshot/sync', requestBody)
+    return this.request('POST', '/v1/screenshot/sync', requestBody)
   }
 
   /**
@@ -33,7 +33,7 @@ export class ScreenshotService extends BaseService {
    * @throws AxiosError
    */
   public async(requestBody: AsyncScreenshot): Promise<AsyncJob> {
-    return this.post('/v1/screenshot/async', requestBody)
+    return this.request('POST', '/v1/screenshot/async', requestBody)
   }
 
 }
