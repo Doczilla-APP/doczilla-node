@@ -7,7 +7,7 @@ describe('Doczilla', () => {
   test('it should throw an error if no api key is provided', () => {
     let error: Error
     try {
-      // @ts-expect-error
+      // @ts-expect-error - testing missing required argument
       new Doczilla()
     } catch (err) {
       error = err
