@@ -27,6 +27,23 @@ const pdfBuffer = await doczilla.pdf.direct({
 })
 ```
 
+### Request configuration
+
+All PDF, screenshot, and template methods accept an optional Axios request config as the final argument, including `signal`, `timeout`, and `headers`. Direct methods always use `arraybuffer` responses to return a `Buffer`.
+
+```ts
+const controller = new AbortController()
+const request = doczilla.pdf.direct({ page: { url: 'https://example.com' } }, {
+  signal: controller.signal,
+  timeout: 30_000
+})
+
+controller.abort()
+await request // Rejects with an Axios cancellation error.
+```
+
+For template listing, pass `doczilla.template.list({}, { signal: controller.signal })`.
+
 ### Webhook signing
 
 Doczilla can optionally sign the webhook events it sends to your endpoint, allowing you to validate that they were not
