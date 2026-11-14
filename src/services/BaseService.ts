@@ -33,14 +33,18 @@ export class BaseService {
 
   constructor(private readonly client: Axios) {}
 
-  protected async request<T>(method: Method, url: string, requestBody?: object, config: AxiosRequestConfig = {}, retries = 1): Promise<T> {
+  protected async request<T>(method: Method, url: string, requestBody?: object, config: AxiosRequestConfig = {}, retries = 1, encodeBody = true): Promise<T> {
     try {
       await this.waitForRateLimit()
+
+      if (requestBody && encodeBody) {
+        requestBody = this.encodeRequestBody(requestBody)
+      }
 
       const axiosResponse = await this.client.request<T>({
         method,
         url: url,
-        data: requestBody ? this.encodeRequestBody(requestBody) : undefined,
+        data: requestBody,
         ...config
       })
       this.processRateLimit(new AxiosHeaders(axiosResponse.headers))
@@ -52,7 +56,7 @@ export class BaseService {
       return axiosResponse.data
     } catch (err) {
       if (isAxiosError(err) && err.status === 429 && retries > 0) {
-        return this.request(method, url, requestBody, config, retries - 1)
+        return this.request(method, url, requestBody, config, retries - 1, false)
       }
 
       throw err
@@ -60,7 +64,7 @@ export class BaseService {
   }
 
   protected encodeRequestBody(requestBody: object): object {
-    if (this.isGenerateRequest(requestBody)) {
+    if (this.isGenerateRequest(requestBody) && requestBody.page) {
       if (requestBody.page.html) {
         requestBody.page.html = this.baseEncodeContent(requestBody.page.html)
       }
@@ -70,7 +74,7 @@ export class BaseService {
       }
     }
 
-    if (this.isPdfRequest(requestBody)) {
+    if (this.isPdfRequest(requestBody) && requestBody.pdf) {
       if (requestBody.pdf?.headerHtml) {
         requestBody.pdf.headerHtml = this.baseEncodeContent(requestBody.pdf.headerHtml)
       }
