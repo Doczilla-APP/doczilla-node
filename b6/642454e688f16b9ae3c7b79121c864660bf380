@@ -1,0 +1,33 @@
+src/__tests__/request-config.spec.ts
+  s_d1c9af53b31ef9::t_aa1d88b1c803c9 39-46
+  s_d1c9af53b31ef9::t_0af9cc87c3318d 1-38,47-72
+src/services/PdfService.ts
+  s_d1c9af53b31ef9::t_0af9cc87c3318d 11,15,17,25,29-30,36,40-41
+  s_d1c9af53b31ef9::t_e2f88f13ac7a60 2
+src/services/ScreenshotService.ts
+  s_d1c9af53b31ef9::t_0af9cc87c3318d 11,15,17,25,29-30,36,40-41
+  s_d1c9af53b31ef9::t_e2f88f13ac7a60 2
+src/services/TemplateService.ts
+  s_d1c9af53b31ef9::t_0af9cc87c3318d 22,26,28,37,41-42,49,53-54,60,64,67,74,78,82,88,92-93,100,103,109,115,118-119
+  s_d1c9af53b31ef9::t_d34b72c470cd5e 66
+  s_d1c9af53b31ef9::t_e2f88f13ac7a60 12
+README.md
+  s_d1c9af53b31ef9::t_d34b72c470cd5e 31,33-35,40-44,46
+  s_d1c9af53b31ef9::t_0af9cc87c3318d 30,32,36-39,45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b6642454e688f16b9ae3c7b79121c864660bf380",
+  "prompts": {},
+  "sessions": {
+    "s_d1c9af53b31ef9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1daeb-0416-7a10-870f-2cfd1aa07172",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Tycho Bokdam <tycho@palmtreecoding.com>"
+    }
+  }
+}
