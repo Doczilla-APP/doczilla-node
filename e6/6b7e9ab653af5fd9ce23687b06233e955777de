@@ -1,0 +1,21 @@
+package.json
+  s_29c7fc4da84cf6::t_194479cb74c406 50
+yarn.lock
+  s_29c7fc4da84cf6::t_fefb83753908cf 411,2024-2026,2028,2032,3227-3229,3233
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e66b7e9ab653af5fd9ce23687b06233e955777de",
+  "prompts": {},
+  "sessions": {
+    "s_29c7fc4da84cf6": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a21c55-8226-77e1-903c-4818170394c1",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "Tycho Bokdam <tycho@palmtreecoding.com>"
+    }
+  }
+}
